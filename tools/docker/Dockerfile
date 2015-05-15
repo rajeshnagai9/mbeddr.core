@@ -13,7 +13,7 @@ RUN  apt-get --force-yes install -y -q   \
 ADD runbuild.bash /runbuild 
 
 # Define mountable directories.
-VOLUME ["/source", "/mbeddr-source"]
+VOLUME ["/mps", "/mbeddr-source", "artifacts"]
 
 # Define default command.
 CMD ["bash", "/runbuild"]

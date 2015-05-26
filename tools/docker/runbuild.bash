@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CODE_ROOT="/mbeddr-source"
-MPS_LOCATION="/mps"
+MPS_LOCATION="$MPS_DIR"
 TEMP="/tmp"
 BUILD_DIR="/build"
 ARTIFACTS_OUTPUT="/artifacts"

@@ -1,17 +1,13 @@
 package com.mbeddr.tools.ant.tasks.impl;
 
+import com.mbeddr.tools.ant.tasks.teamcity.ITeamcityLogger;
+import com.mbeddr.tools.ant.tasks.teamcity.Test;
+import com.mbeddr.tools.ant.tasks.teamcity.TestSuite;
+import com.mbeddr.tools.ant.util.Util;
+
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.mbeddr.tools.ant.tasks.teamcity.ITeamcityLogger;
-import com.mbeddr.tools.ant.tasks.teamcity.messages.TeamcityStdOutMessage;
-import com.mbeddr.tools.ant.tasks.teamcity.messages.TestFailedMessage;
-import com.mbeddr.tools.ant.tasks.teamcity.messages.TestFinishedMessage;
-import com.mbeddr.tools.ant.tasks.teamcity.messages.TestStartedMessage;
-import com.mbeddr.tools.ant.tasks.teamcity.messages.TestSuiteFinishedMessage;
-import com.mbeddr.tools.ant.tasks.teamcity.messages.TestSuiteStartedMessage;
-import com.mbeddr.tools.ant.util.Util;
 
 public class MessageTranslator {
 	private Util util = null;
@@ -36,73 +32,47 @@ public class MessageTranslator {
 	}
 
 	public void translateMessages(File makeDirectory) throws Exception {
-		TestState currentTest = null;
+		Test currentTest = null;
 		String testSuiteName = util.extractTestSuiteName(makeDirectory);
+		TestSuite suite = logger.startTestSuite(testSuiteName);
 
-		logger.log(new TestSuiteStartedMessage(testSuiteName, true));
 
 		for (String msg : processResult.getMessages()) {
 			if (msg.startsWith("$$runningTest:")) {
-				if(currentTest != null) {
+				if(currentTest != null && !currentTest.hasFinished()) {
 					// the previous test has finished
-					logger.log(new TestFinishedMessage(currentTest.getName()));
+					currentTest.successIfNotFailed();
 				}
-				currentTest = new TestState(extractTestName(msg));
-				logger.log(new TestStartedMessage(currentTest.getName(), true));
-			} else if (msg.startsWith("$$FAILED:") && currentTest == null) {
-				String[] path= makeDirectory.getCanonicalPath().split("/");
-				String testName = path[path.length-1];
-				currentTest = new TestState(testName);
-				logger.log(new TestStartedMessage(currentTest.getName(), true));
-				logger.log(new TestFailedMessage(currentTest.getName(), msg));
-				currentTest.setFailed();
-			} else if (msg.startsWith("$$FAILED:") && currentTest != null && !currentTest.isFailed() && processResult.getReturnCode() != 0) {
-				logger.log(new TestFailedMessage(currentTest.getName(), msg));
-				currentTest.setFailed();
+				currentTest = suite.startTest(extractTestName(msg));
+			} else if (msg.startsWith("$$FAILED:") && processResult.getReturnCode() != 0) {
+				if (currentTest == null)
+				{
+					String[] path= makeDirectory.getCanonicalPath().split("/");
+					String testName = path[path.length-1];
+					currentTest =suite.startTest(testName);
+				}
+				currentTest.fail(msg);
 			} else {
-				logger.log(new TeamcityStdOutMessage(msg));
+				if(currentTest != null)
+					currentTest.addMessage(msg);
+
+				logger.log(msg);
 			}
 		}
 		if (currentTest != null) {
 			// program crashed for some reasons
-			if(!currentTest.isFailed() && processResult.getReturnCode() != 0) {
-				logger.log(new TestFailedMessage(currentTest.getName(), "Test program exited with: "+processResult.getReturnCode()));
+			if(!currentTest.hasFailed() && processResult.getReturnCode() != 0) {
+                currentTest.fail("Test program exited with: "+processResult.getReturnCode());
 			}
-			logger.log(new TestFinishedMessage(currentTest.getName()));
+            if(!currentTest.hasFinished())
+                currentTest.successIfNotFailed();
 		} else if(processResult.getReturnCode() != 0) {
 			// we run into a stack fault before any output was printed
 			final String allTestLabel = "all tests";
-			logger.log(new TestStartedMessage(allTestLabel, true));
-			logger.log(new TestFailedMessage(allTestLabel, "Execution was terminated before any test was executed: "+processResult.getReturnCode()));
-			logger.log(new TestFinishedMessage(allTestLabel));
+            suite.startTest(allTestLabel)
+                    .fail("Execution was terminated before any test was executed: "+processResult.getReturnCode())
+                    .finish();
 		}
-		logger.log(new TestSuiteFinishedMessage(testSuiteName, processResult
-				.getReturnCode()));
-	}
-	
-	static class TestState {
-		private boolean failed = false;
-		private String name;
-		
-		public TestState(String name) {
-			this.name = name;
-		}
-		
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public void setFailed() {
-			this.failed = true;
-		}
-		
-		public boolean isFailed() {
-			return this.failed;
-		}
-		
+        suite.finish();
 	}
 }

@@ -19,7 +19,6 @@ public class MakeTestsTask extends Task {
 		this.workingDirectory = workingDirectory;
 	}
 
-	private MakeExecutor testInvoker = new TestInvoker();
 	private MakeExecutor libraryBuilder = new LibraryBuilder();
 
 	private List<File> findMakefilesInSubdirectories(File workingDirectory) {
@@ -43,7 +42,7 @@ public class MakeTestsTask extends Task {
 
 		List<File> makeFiles = findMakefilesInSubdirectories(currentWorkingDirectory);
 		libraryBuilder.execute(makeFiles, getProject());
-		testInvoker.execute(makeFiles, getProject());
+		new TestInvoker(workingDirectory).execute(makeFiles, getProject());
 	}
 
 }

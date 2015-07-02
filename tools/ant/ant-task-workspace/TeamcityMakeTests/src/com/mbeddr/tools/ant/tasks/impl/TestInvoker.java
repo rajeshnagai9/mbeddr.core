@@ -15,7 +15,12 @@ public class TestInvoker implements MakeExecutor {
 
 	private Project project = null;
 	private Util util = null;
+	private String workingDirectory;
 	ITeamcityLogger logger;
+
+	public TestInvoker(String workingDirectory) {
+		this.workingDirectory = workingDirectory;
+	}
 	
 	
 	private void invokeTestTarget(List<File> testPaths) {
@@ -42,6 +47,7 @@ public class TestInvoker implements MakeExecutor {
 								+ makeDirectory.getAbsolutePath());
 			}
 		}
+		logger.writeResults(this.workingDirectory);
 	}
 
 	

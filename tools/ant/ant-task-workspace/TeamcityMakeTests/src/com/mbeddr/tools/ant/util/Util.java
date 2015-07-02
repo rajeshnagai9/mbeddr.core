@@ -1,20 +1,14 @@
 package com.mbeddr.tools.ant.util;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-
+import com.mbeddr.tools.ant.tasks.impl.ProcessResult;
+import com.mbeddr.tools.ant.tasks.teamcity.ITeamcityLogger;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Project;
 
-import com.mbeddr.tools.ant.tasks.impl.ProcessResult;
-import com.mbeddr.tools.ant.tasks.teamcity.ITeamcityLogger;
-import com.mbeddr.tools.ant.tasks.teamcity.messages.TeamcityStdOutMessage;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 public class Util {
 
@@ -42,7 +36,7 @@ public class Util {
 	public Process createProcess(File workingDirectory,
 			ProcessBuilder processBuilder, ITeamcityLogger logger)
 			throws IOException {
-		logger.log(new TeamcityStdOutMessage("working in: " + workingDirectory));
+		logger.log("working in: " + workingDirectory);
 		processBuilder.directory(workingDirectory);
 		return processBuilder.start();
 	}

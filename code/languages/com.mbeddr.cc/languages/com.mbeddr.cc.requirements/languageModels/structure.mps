@@ -191,9 +191,6 @@
       <property role="20lbJX" value="0..n" />
       <ref role="20lvS9" node="2S0oKITSaF4" resolve="RequirementsSummary" />
     </node>
-    <node concept="PrWs8" id="7_tU7IQsFfy" role="PzmwI">
-      <ref role="PrY4T" to="vs0r:65XyadYKJgN" resolve="IIdentifierNamedConcept" />
-    </node>
     <node concept="PrWs8" id="opE5jFgfmB" role="PzmwI">
       <ref role="PrY4T" to="26ao:opE5jFgfm$" resolve="ITraceTargetProvider" />
     </node>

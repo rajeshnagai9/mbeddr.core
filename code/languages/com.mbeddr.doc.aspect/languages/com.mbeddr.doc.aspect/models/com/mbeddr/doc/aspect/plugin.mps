@@ -40,6 +40,12 @@
   </registry>
   <node concept="3vrhyV" id="70oIz4aiOJd">
     <property role="TrG5h" value="documentation" />
+    <node concept="3vrm2R" id="70oIz4amd6H" role="3vrhxr">
+      <node concept="2V$Bhx" id="70oIz4amd6T" role="2V$M_3">
+        <property role="2V$B1T" value="92d2ea16-5a42-4fdf-a676-c7604efe3504" />
+        <property role="2V$B1Q" value="de.slisson.mps.richtext" />
+      </node>
+    </node>
     <node concept="3vrm2R" id="70oIz4aiOJe" role="3vrhxp">
       <node concept="2V$Bhx" id="70oIz4aiOKf" role="2V$M_3">
         <property role="2V$B1T" value="38a074ed-e5ad-4b2d-be31-ca436911b8aa" />
@@ -48,12 +54,6 @@
     </node>
     <node concept="1QGGSu" id="70oIz4aiOKk" role="3vqPLo">
       <property role="1QGGTI" value="${module}/icons/toc_closed.gif" />
-    </node>
-    <node concept="3vrm2R" id="70oIz4amd6H" role="3vrhxr">
-      <node concept="2V$Bhx" id="70oIz4amd6T" role="2V$M_3">
-        <property role="2V$B1T" value="92d2ea16-5a42-4fdf-a676-c7604efe3504" />
-        <property role="2V$B1Q" value="de.slisson.mps.richtext" />
-      </node>
     </node>
   </node>
 </model>

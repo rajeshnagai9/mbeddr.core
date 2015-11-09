@@ -121,9 +121,6 @@
     <node concept="PrWs8" id="6oKG1kMyAVP" role="PzmwI">
       <ref role="PrY4T" node="6oKG1kMyAVO" resolve="IActionGeneratingCell" />
     </node>
-    <node concept="PrWs8" id="3MU4zYtqjct" role="PzmwI">
-      <ref role="PrY4T" node="2uT2PLmXqYk" resolve="IGrammarCell" />
-    </node>
     <node concept="PrWs8" id="3O7ZvCZLRkq" role="PzmwI">
       <ref role="PrY4T" node="3O7ZvCZLPYU" resolve="ICellWrapper" />
     </node>
@@ -231,7 +228,7 @@
     <node concept="1TJgyj" id="2uT2PLmWwE4" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="projection" />
-      <property role="20lbJX" value="0..1" />
+      <property role="20lbJX" value="1" />
       <ref role="20lvS9" to="tpc2:fBEYTCT" resolve="EditorCellModel" />
     </node>
   </node>
@@ -380,7 +377,7 @@
     <node concept="1TJgyj" id="77A3HzrGsvB" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
       <property role="20kJfa" value="symbols" />
-      <property role="20lbJX" value="1" />
+      <property role="20lbJX" value="0..1" />
       <ref role="20lvS9" to="tpc2:fBEYTCT" resolve="EditorCellModel" />
     </node>
     <node concept="1TJgyj" id="77A3HzrJpWi" role="1TKVEi">

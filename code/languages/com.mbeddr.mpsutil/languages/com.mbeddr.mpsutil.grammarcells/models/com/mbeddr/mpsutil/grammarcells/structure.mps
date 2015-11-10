@@ -14,6 +14,7 @@
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
+      <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9" />
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="5092175715804935370" name="conceptAlias" index="34LRSv" />
         <property id="1587916991969465369" name="conceptId" index="1pbfSe" />
@@ -41,6 +42,7 @@
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
+        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
@@ -140,7 +142,7 @@
     <property role="1pbfSe" value="1434007901" />
     <property role="3GE5qa" value="cells" />
     <property role="TrG5h" value="OptionalCell" />
-    <property role="34LRSv" value="optional" />
+    <property role="34LRSv" value="grammar.optional" />
     <ref role="1TJDcQ" to="tpc2:fBEYTCT" resolve="EditorCellModel" />
     <node concept="1TJgyj" id="4qdNcHzYfBp" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
@@ -217,7 +219,7 @@
     <property role="1pbfSe" value="2144047008" />
     <property role="3GE5qa" value="cells" />
     <property role="TrG5h" value="GrammarInfoCell" />
-    <property role="34LRSv" value="grammar" />
+    <property role="34LRSv" value="grammar.rules" />
     <ref role="1TJDcQ" to="tpc2:fBEYTCT" resolve="EditorCellModel" />
     <node concept="1TJgyj" id="77A3HzrGy5f" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
@@ -413,10 +415,12 @@
     <node concept="1TJgyi" id="6ASs6Ln45Jn" role="1TKVEl">
       <property role="TrG5h" value="forceLeft" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      <node concept="asaX9" id="7K_2cV$JPWu" role="lGtFl" />
     </node>
     <node concept="1TJgyi" id="6ASs6Ln4653" role="1TKVEl">
       <property role="TrG5h" value="forceRight" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      <node concept="asaX9" id="7K_2cV$JPW_" role="lGtFl" />
     </node>
     <node concept="PrWs8" id="6ASs6Ln2NAp" role="PzmwI">
       <ref role="PrY4T" node="6oKG1kMyAVO" resolve="IActionGeneratingCell" />
@@ -429,6 +433,16 @@
       <property role="20kJfa" value="wrapped" />
       <property role="20lbJX" value="1" />
       <ref role="20lvS9" to="tpc2:fBEYTCT" resolve="EditorCellModel" />
+    </node>
+    <node concept="1TJgyj" id="7K_2cV$Jyyt" role="1TKVEi">
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="leftEnabled" />
+      <ref role="20lvS9" node="7K_2cV$JzCl" resolve="IncludeParentSideTransformations_Condition" />
+    </node>
+    <node concept="1TJgyj" id="7K_2cV$JOge" role="1TKVEi">
+      <property role="20lmBu" value="aggregation" />
+      <property role="20kJfa" value="rightEnabled" />
+      <ref role="20lvS9" node="7K_2cV$JzCl" resolve="IncludeParentSideTransformations_Condition" />
     </node>
   </node>
   <node concept="PlHQZ" id="3O7ZvCZLPYU">
@@ -445,7 +459,7 @@
     <property role="1pbfSe" value="1425616518" />
     <property role="3GE5qa" value="cells" />
     <property role="TrG5h" value="SideTransformationCell" />
-    <property role="34LRSv" value="grammar.sideTransform" />
+    <property role="34LRSv" value="grammar.sideTransform0" />
     <ref role="1TJDcQ" to="tpc2:fBEYTCT" resolve="EditorCellModel" />
     <node concept="1TJgyj" id="6jH9yJK30Bk" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
@@ -532,7 +546,7 @@
     <property role="1pbfSe" value="1359203626" />
     <property role="3GE5qa" value="cells" />
     <property role="TrG5h" value="SideTransformationCell2" />
-    <property role="34LRSv" value="grammar.sideTransformation2" />
+    <property role="34LRSv" value="grammar.sideTransformation" />
     <ref role="1TJDcQ" to="tpc2:fBEYTCT" resolve="EditorCellModel" />
     <node concept="1TJgyj" id="4eBi5gdnl32" role="1TKVEi">
       <property role="20lmBu" value="aggregation" />
@@ -557,9 +571,6 @@
     </node>
     <node concept="PrWs8" id="4eBi5gdBmA1" role="PzmwI">
       <ref role="PrY4T" node="4eBi5gdADMe" resolve="INotALeaf" />
-    </node>
-    <node concept="PrWs8" id="6rhOS_xv6AJ" role="PzmwI">
-      <ref role="PrY4T" node="6rhOS_xv5cy" resolve="IGeneratorOnly" />
     </node>
   </node>
   <node concept="1TIwiD" id="4eBi5gdn8p_">
@@ -641,6 +652,12 @@
     <property role="TrG5h" value="WrapperCell_SubstituteCondition_expectedConcept" />
     <property role="34LRSv" value="expectedConcept" />
     <ref role="1TJDcQ" to="tpee:g76ryKb" resolve="ConceptFunctionParameter" />
+  </node>
+  <node concept="1TIwiD" id="7K_2cV$JzCl">
+    <property role="1pbfSe" value="1625506531" />
+    <property role="3GE5qa" value="cells" />
+    <property role="TrG5h" value="IncludeParentSideTransformations_Condition" />
+    <ref role="1TJDcQ" to="tpee:gyVMwX8" resolve="ConceptFunction" />
   </node>
 </model>
 

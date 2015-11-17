@@ -6735,10 +6735,10 @@
           <node concept="3wxxNl" id="4VPUKkrsfJD" role="pFrBa">
             <property role="2caQfQ" value="false" />
             <property role="2c7vTL" value="false" />
-            <node concept="1sgJKr" id="4VPUKkrsfJE" role="2umbIo">
+            <node concept="rcJHQ" id="4VPUKkrsqTF" role="2umbIo">
               <property role="2caQfQ" value="false" />
               <property role="2c7vTL" value="false" />
-              <ref role="1sgJKq" node="4VPUKkrsfKw" resolve="__siginfo" />
+              <ref role="rcJHT" node="4VPUKkrsfKS" resolve="siginfo_t" />
             </node>
           </node>
           <node concept="3wxxNl" id="4VPUKkrsfJF" role="pFrBa">

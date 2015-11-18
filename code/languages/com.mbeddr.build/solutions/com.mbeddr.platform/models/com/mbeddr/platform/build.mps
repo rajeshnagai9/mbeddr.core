@@ -816,8 +816,8 @@
             <ref role="3bR37D" to="ffeo:7Kfy9QB6KXW" resolve="jetbrains.mps.lang.core" />
           </node>
         </node>
-        <node concept="1SiIV0" id="Pu8Vy2f5Go" role="3bR37C">
-          <node concept="3bR9La" id="Pu8Vy2f5Gp" role="1SiIV1">
+        <node concept="1SiIV0" id="1eOFpnAv66I" role="3bR37C">
+          <node concept="3bR9La" id="1eOFpnAv66J" role="1SiIV1">
             <property role="3bR36h" value="false" />
             <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
           </node>
@@ -10466,10 +10466,10 @@
       <node concept="22LTRM" id="Pu8Vy2f3Za" role="22LTRK">
         <ref role="22LTRN" node="Pu8Vy2f2Pw" resolve="test.com.mbeddr.mpsutil.compare" />
       </node>
-      <node concept="22LTRM" id="2en4C11kpMP" role="22LTRK">
+      <node concept="22LTRM" id="7G75CP8Nx_e" role="22LTRK">
         <ref role="22LTRN" node="Pu8Vy2apsI" resolve="test.com.mbeddr.mpsutil.testScope" />
       </node>
-      <node concept="22LTRM" id="2en4C11kpMR" role="22LTRK">
+      <node concept="22LTRM" id="7G75CP8Nx_g" role="22LTRK">
         <ref role="22LTRN" node="6B579NFLjUq" resolve="com.mbeddr.mpsutil.grammarcells.tests" />
       </node>
     </node>

@@ -9867,16 +9867,16 @@
             <ref role="1Busuk" node="2bBLuwR9LnB" resolve="com.mbeddr.mpsutil.interpreter.test" />
           </node>
         </node>
-        <node concept="1yeLz9" id="15E$Thf_6lK" role="1TViLv">
-          <property role="TrG5h" value="com.mbeddr.mpsutil.javainterpreter.test#6267356447275018447" />
-          <property role="3LESm3" value="da16ac82-9662-4cb8-b6de-3c95e21b838e" />
-          <property role="2GAjPV" value="false" />
-        </node>
         <node concept="1SiIV0" id="3zAWwLKfJD7" role="3bR37C">
           <node concept="3bR9La" id="3zAWwLKfJD8" role="1SiIV1">
             <property role="3bR36h" value="false" />
             <ref role="3bR37D" node="5GUwywcVavP" resolve="com.mbeddr.mpsutil.interpreter" />
           </node>
+        </node>
+        <node concept="1yeLz9" id="15E$Thf_6lK" role="1TViLv">
+          <property role="TrG5h" value="com.mbeddr.mpsutil.javainterpreter.test#6267356447275018447" />
+          <property role="3LESm3" value="da16ac82-9662-4cb8-b6de-3c95e21b838e" />
+          <property role="2GAjPV" value="false" />
         </node>
       </node>
       <node concept="1E1JtA" id="4gGXGcLVuHu" role="2G$12L">
@@ -10432,6 +10432,18 @@
             <ref role="3bR37D" to="ffeo:1TaHNgiIbJ$" resolve="jetbrains.mps.ide.editor" />
           </node>
         </node>
+        <node concept="1SiIV0" id="2ikshVTHRUk" role="3bR37C">
+          <node concept="3bR9La" id="2ikshVTHRUl" role="1SiIV1">
+            <property role="3bR36h" value="false" />
+            <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="2ikshVTHRUm" role="3bR37C">
+          <node concept="3bR9La" id="2ikshVTHRUn" role="1SiIV1">
+            <property role="3bR36h" value="false" />
+            <ref role="3bR37D" to="ffeo:1TaHNgiIbIZ" resolve="MPS.Editor" />
+          </node>
+        </node>
       </node>
     </node>
     <node concept="22LTRH" id="7eF9rfAnzVt" role="1hWBAP">
@@ -10469,7 +10481,7 @@
       <node concept="22LTRM" id="7G75CP8Nx_e" role="22LTRK">
         <ref role="22LTRN" node="Pu8Vy2apsI" resolve="test.com.mbeddr.mpsutil.testScope" />
       </node>
-      <node concept="22LTRM" id="7G75CP8Nx_g" role="22LTRK">
+      <node concept="22LTRM" id="6B579NFLlJ1" role="22LTRK">
         <ref role="22LTRN" node="6B579NFLjUq" resolve="com.mbeddr.mpsutil.grammarcells.tests" />
       </node>
     </node>
